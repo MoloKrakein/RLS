@@ -10,6 +10,7 @@ public class WallDetectionAgent : Agent
     [Header("Agent Properties")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotateSpeed;
+    [SerializeField] Transform playerPosition;
 
     [Header("Exploration Settings")]
     [SerializeField] Transform[] spawnPoints;
@@ -19,6 +20,9 @@ public class WallDetectionAgent : Agent
         int randomIndex = Random.Range(0, spawnPoints.Length);
         transform.localPosition = spawnPoints[randomIndex].localPosition;
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+
+        int randomPlayerIndex = Random.Range(0, spawnPoints.Length);
+        playerPosition.localPosition = spawnPoints[randomPlayerIndex].localPosition;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -60,8 +64,9 @@ public class WallDetectionAgent : Agent
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Checkpoint")){
-            AddReward(1f);
+        if(collision.CompareTag("Player")){
+            AddReward(5f);
+            EndEpisode();
         }
     }
 }
