@@ -10,6 +10,8 @@ public class Stats : MonoBehaviour
     // The maximum value for the detection percentage
     private float maxDetectionPercentage = 100.0f;
 
+    private int kills = 0;
+
     public float GetDetectionValue()
     {
         return detectionValue;
@@ -18,6 +20,15 @@ public class Stats : MonoBehaviour
     public void SetDetectionValue(float value)
     {
         detectionValue = Mathf.Clamp(value, 0.0f, maxDetectionPercentage);
+    }
+
+    public void AddKill()
+    {
+        kills++;
+    }
+    public int GetKills()
+    {
+        return kills;
     }
 
     
