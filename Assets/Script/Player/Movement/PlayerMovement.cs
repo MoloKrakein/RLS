@@ -13,6 +13,15 @@ namespace TopDown.Movement
             Vector3 playerInput = new Vector3(value.Get<Vector2>().x, value.Get<Vector2>().y, 0);
             currInput = playerInput;
         }
+
+        private void SetSpeed(InputValue value){
+            Vector2 playerInput = Mouse.current.scroll.ReadValue();
+            scrollInput = playerInput;
+
+        
+        }
+
+
    
     }
 }
