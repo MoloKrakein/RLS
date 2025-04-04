@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Speed",
+                    "name": "Scroll",
                     "type": "Value",
                     "id": "464e2a5e-5dcb-4a13-a878-5e4ac23ba993",
                     "expectedControlType": "",
@@ -184,7 +184,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Speed",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
